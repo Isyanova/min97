@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Comment
+from .models import Post, Comment, Subject
 from .forms import PostForm, CommentForm
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
@@ -12,9 +12,28 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
+def post_list1(request):
+    return render(request, 'blog/post_list1.html', {})
+
+
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(subject="Физика")
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+
+def post_list2(request):
+    posts = Post.objects.filter(subject="Математический анализ")
+    return render(request, 'blog/post_list2.html', {'posts': posts})
+
+
+def post_list3(request):
+    posts = Post.objects.filter(subject="C++")
+    return render(request, 'blog/post_list3.html', {'posts': posts})
+
+
+def post_list4(request):
+    posts = Post.objects.filter(subject="PascalABC")
+    return render(request, 'blog/post_list4.html', {'posts': posts})
 
 
 @login_required

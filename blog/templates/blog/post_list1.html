@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+        {% block content %}
+
+        <div class="post">
+            <h2><a href="{% url 'post_list' %}">Физика</a></h2>
+        </div>
+
+        <div class="post">
+            <h2><a href="{% url 'post_list2' %}">Математический анализ</a></h2>
+        </div>
+
+        <div class="post">
+
+            <h2><a>Программирование</a></h2>
+            <div class="col-md-8">
+                <h3><a href="{% url 'post_list3' %}">С++</a></h3>
+                <h3><a href="{% url 'post_list4' %}">PascalABC</a></h3>
+            </div>
+        </div>
+
+
+    {% endblock %}
